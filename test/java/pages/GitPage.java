@@ -1,9 +1,9 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -36,7 +36,7 @@ public class GitPage {
 
     @Step("Проверка существования issue c номером {number}")
     public GitPage checkIssueWithNumber(int number) {
-        $(withText("#" + number)).shouldBe(Condition.visible);
+        $(withText("#" + number)).shouldBe(visible);
         return this;
     }
 }

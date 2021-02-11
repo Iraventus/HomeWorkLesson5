@@ -1,10 +1,9 @@
 package tests;
 
-
-import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -22,6 +21,6 @@ public class SelenideTest {
         $(By.name("q")).val(REPOSITORY).pressEnter();
         $(By.linkText(REPOSITORY)).click();
         $(withText(ISSUES)).click();
-        $(withText("#" + ISSUE_NUMBER)).shouldBe(Condition.visible);
+        $(withText("#" + ISSUE_NUMBER)).shouldBe(visible);
     }
 }

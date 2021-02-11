@@ -1,6 +1,5 @@
 package tests;
 
-import com.codeborne.selenide.Condition;
 import io.qameta.allure.Link;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
@@ -9,6 +8,7 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -44,7 +44,7 @@ public class WithLambdaStepTest {
                     $(withText(ISSUES)).click();
                 });
         step("Проверка наличия " + ISSUES + " с номером " + ISSUE_NUMBER, () -> {
-            $(withText("#" + ISSUE_NUMBER)).shouldBe(Condition.visible);
+            $(withText("#" + ISSUE_NUMBER)).shouldBe(visible);
         });
     }
 }
